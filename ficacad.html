@@ -2,12 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ficha Académica Dinámica</title>
+  <title>Ficha Académica Institucional</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
     .sidebar {
       height: 100vh; width: 250px; position: fixed;
       background-color: #2c3e50; padding-top: 20px; color: white;
+    }
+    .sidebar img {
+      display: block; margin: 0 auto 10px auto;
+      max-width: 120px; border-radius: 4px;
+    }
+    .sidebar h3 {
+      text-align: center; margin-bottom: 20px;
     }
     .sidebar a {
       display: block; color: white; padding: 12px 20px;
@@ -44,12 +51,15 @@
 <body>
 
 <div class="sidebar">
-  <h3 style="text-align:center;">Menú</h3>
+  <!-- ✅ Logo institucional -->
+  <img src="logo.png" alt="Logo de la empresa">
+  <h3>Menú</h3>
   <a onclick="mostrarSeccion('ficha')">1. Ficha Académica</a>
   <a onclick="mostrarSeccion('publicaciones')">2. Publicaciones Indexadas</a>
 </div>
 
 <div class="content">
+  <!-- ✅ Sección: Ficha Académica -->
   <div class="section" id="ficha">
     <h2>1. Ficha Académica</h2>
     <form>
@@ -68,6 +78,7 @@
     </form>
   </div>
 
+  <!-- ✅ Sección: Publicaciones Indexadas -->
   <div class="section" id="publicaciones">
     <h2>2. Publicaciones Indexadas</h2>
     <table id="tablaPublicaciones">
@@ -90,9 +101,7 @@ function mostrarSeccion(id) {
   secciones.forEach(sec => sec.style.display = 'none');
   document.getElementById(id).style.display = 'block';
 }
-
-// Mostrar la primera sección por defecto
-mostrarSeccion('ficha');
+mostrarSeccion('ficha'); // Mostrar ficha por defecto
 
 function añadirFila() {
   const tabla = document.getElementById("tablaPublicaciones").getElementsByTagName("tbody")[0];
@@ -116,6 +125,3 @@ function añadirFila() {
 
 </body>
 </html>
-
-
-
